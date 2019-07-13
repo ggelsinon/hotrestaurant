@@ -8,6 +8,9 @@ var path = require("path");
 var app = express();
 var PORT = 3000;
 
+
+
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -40,3 +43,18 @@ var customers = [
    app.get("/tables", function( req, res){
      res.sendFile(path.join(__dirname, "tables.html"));
    });
+
+
+ 
+app.post("/tables", function(req, res) {
+
+  var newCustomer = req.body;
+
+  newCustomer.routeName = newCustomer.id.replace(/\s+/g, "").toLowerCase();
+
+  console.log(newCustomer);
+
+  customers.push(newCustomer);
+
+  res.json(newCustomer);
+});
