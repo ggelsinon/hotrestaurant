@@ -16,6 +16,14 @@ app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 
+
+  var newCustomer = [{
+    customerName = "",
+    phoneNumber = "",
+    customerEmail = "",
+    cusomterID = ""
+  }]
+
   
 
    app.get("/", function(req, res){
@@ -36,7 +44,7 @@ app.post("/tables", function(req, res) {
 
   var newCustomer = req.body;
 
-  newCustomer.routeName = newCustomer.id.replace(/\s+/g, "").toLowerCase();
+  newCustomer.routeName = newCustomer.customerID.replace(/\s+/g, "").toLowerCase();
 
   console.log(newCustomer);
 
