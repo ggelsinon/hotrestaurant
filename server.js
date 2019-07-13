@@ -1,5 +1,6 @@
 var express = require("express");
 
+
 var app = express();
 var PORT = 3000;
 
@@ -11,17 +12,16 @@ app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 
-  var customers = [{
-    customerName: $("#name").val().trim(),
-    phoneNumber: $("#phone").val().trim(),
-    customerEmail: $("#email").val().trim(),
-    customerID: $("#id").val().trim()
+  
 
-  }
-  ];
+   app.get("/", function(req, res){
+     res.sendFile(path.join(__dirname, "index.html"));
+   });
 
-   $.post("/api/characters", customers)
-   .then(function(data) {
-     console.log("add.html", data);
-     alert("Adding character...");
+   app.get("/reservations", function(req, res){
+     res.sendFile(path.join(__dirname, "reserve.html"));
+   });
+
+   app.get("/tables", function( req, res){
+     res.sendFile(path.join(__dirname, "tables.html"));
    });
