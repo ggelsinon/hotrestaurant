@@ -20,15 +20,6 @@ app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 
-var customers = [
-  {
-    customerName:
-    phoneNumber:
-    customerEmail:
-    customerID:
-  }
-]  
-
 // Routes
 // =============================================================
 
